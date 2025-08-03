@@ -1,0 +1,62 @@
+# GitHub Actions workflow for Laravel backend CI/CD
+# Place this file in .github/workflows/laravel.yml
+
+name: Backend CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DB_CONNECTION: pgsql
+      DB_HOST: 127.0.0.1
+      DB_PORT: 5432
+      DB_DATABASE: postgres
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+      APP_ENV: testing
+      APP_KEY: base64:6Gib53af56AVsGuTQEunUHHx+E+dFZPic5HGX96dam4=
+      CACHE_DRIVER: file
+      QUEUE_CONNECTION: sync
+      SESSION_DRIVER: file
+      BROADCAST_DRIVER: log
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, bcmath, pdo, pdo_pgsql
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+      - name: Copy .env
+        run: cp .env.example .env
+      - name: Generate app key
+        run: php artisan key:generate
+      - name: Run migrations
+        run: php artisan migrate --force
+      - name: Run tests
+        run: php artisan test
+      - name: Deploy to Render (if needed)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          echo "Trigger Render deploy here if using deploy hook URL."
+          # curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}

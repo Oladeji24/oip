@@ -1,0 +1,90 @@
+/* Custom styles for OIP Trading platform */
+
+/* Hero section with background image - using gradient instead of image */
+.landing-page .hero-section {
+  background: linear-gradient(to right, #1a2236, #2d3748);
+  color: white;
+  padding: 120px 0;
+  margin-bottom: 3rem;
+}
+
+/* Feature icons */
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  color: #0d6efd;
+}
+
+/* Card hover effects */
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Dashboard styles */
+.dashboard-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  height: 100%;
+}
+
+.dashboard-card .card-header {
+  background-color: #343a40;
+  color: white;
+  font-weight: 500;
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+/* Footer styling */
+footer {
+  background-color: #343a40;
+  color: rgba(255,255,255,0.75);
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+footer a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+}
+
+/* Auth forms */
+.auth-form-container {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background-color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .landing-page .hero-section {
+    padding: 80px 0;
+  }
+}

@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Helvetica Neue', sans-serif;
+  color: #232946;
+  background: linear-gradient(135deg, #f8fafc 0%, #a78bfa 30%, #38bdf8 60%, #facc15 100%);
+  min-height: 100vh;
+}
+
+/* Free Unsplash dashboard background image overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+  opacity: 0.12;
+}
+
+/* Add or update at the bottom of the file for custom dashboard styles */
+
+.card {
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px 0 rgba(56, 189, 248, 0.10);
+  border: none;
+  background: #fff;
+}
+
+.card-header {
+  background: linear-gradient(90deg, #a78bfa 0%, #38bdf8 40%, #facc15 80%, #22c55e 100%);
+  color: #232946;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 1.2rem 1.2rem 0 0;
+  border: none;
+  box-shadow: 0 2px 12px 0 rgba(56, 189, 248, 0.10);
+}
+
+.btn-primary, .btn-success, .btn-danger, .btn-outline-primary {
+  border-radius: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px 0 rgba(80, 80, 180, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #38bdf8 0%, #a78bfa 100%);
+  color: #fff;
+  border: none;
+}
+
+.btn-success {
+  background: linear-gradient(90deg, #22c55e 0%, #facc15 100%);
+  color: #fff;
+  border: none;
+}
+
+.btn-danger {
+  background: linear-gradient(90deg, #f43f5e 0%, #38bdf8 100%);
+  color: #fff;
+  border: none;
+}
+
+.btn-outline-primary {
+  color: #38bdf8;
+  border-color: #38bdf8;
+}
+
+.table {
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.table thead {
+  background: linear-gradient(90deg, #a78bfa 0%, #38bdf8 100%);
+  color: #fff;
+}
+
+.alert-info {
+  background: linear-gradient(90deg, #facc15 0%, #38bdf8 100%);
+  color: #232946;
+  border: none;
+}
+
+.form-label {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+input.form-control, select.form-select {
+  border-radius: 1.5rem;
+  border: 1px solid #a78bfa;
+  background: #f1f5f9;
+  color: #232946;
+  transition: border 0.2s;
+}
+input.form-control:focus, select.form-select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px #38bdf833;
+}
+
+.card, .modal-content, .toast, .alert {
+  box-shadow: 0 4px 24px 0 rgba(56, 189, 248, 0.10);
+}
+
+h1, h2, h3, h4, h5, h6, .card-header, .navbar-brand, .btn, .form-label {
+  color: #232946 !important;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Helvetica Neue', sans-serif;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #232946 0%, #38bdf8 100%);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: #facc15 !important;
+  letter-spacing: 1px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  .table {
+    font-size: 0.95rem;
+  }
+  .card-header {
+    font-size: 1.1rem;
+  }
+}
+
+/* Chart.js custom colors */
+.chartjs-render-monitor {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px 0 rgba(80, 80, 180, 0.04);
+}
+
+/* Modal polish */
+.modal-content {
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px 0 rgba(80, 80, 180, 0.12);
+}
+
+/* Toasts and alerts */
+.toast, .alert {
+  border-radius: 1.2rem;
+}
+
+/* Add more as needed for your brand */
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -2;
+  background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1500&q=80') right bottom/cover no-repeat;
+  opacity: 0.10;
+  pointer-events: none;
+}

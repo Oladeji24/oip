@@ -1,0 +1,33 @@
+# GitHub Actions workflow for React frontend CI/CD
+# Place this file in .github/workflows/frontend.yml
+
+name: Frontend CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Lint
+        run: npm run lint || echo "Lint warnings only"
+      - name: Run tests
+        run: npm test -- --watchAll=false
+      - name: Build
+        run: npm run build
+      - name: Deploy to Vercel (if needed)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          echo "Trigger Vercel deploy here if using deploy hook URL."
+          # curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
